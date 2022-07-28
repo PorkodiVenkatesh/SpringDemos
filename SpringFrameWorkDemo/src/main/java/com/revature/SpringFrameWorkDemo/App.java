@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
 /**
@@ -27,12 +29,28 @@ public class App
     	//Using BeanFactory (XML) or Application Content (XML+ Java based Configuration)
     	//Bean Factory -> beans -> objects
     	
-    	BeanFactory beanFactory  = new XmlBeanFactory(new ClassPathResource("beans.xml"));
+//    	BeanFactory beanFactory  = new XmlBeanFactory(new ClassPathResource("beans.xml"));
+//    	
+//	   	Vehicle obj = (Vehicle) beanFactory.getBean("porkodi");
+//	   	obj.drive();
     	
-	   	Vehicle obj = (Vehicle) beanFactory.getBean("vehicle");
-	   	obj.drive();
+    	
+    	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+    	
+//    	Vehicle obj  = (Vehicle) context.getBean("porkodi");
+//    	obj.drive();
+    	
+//    	Tyre t = new Tyre("Ceat");
+//    	System.out.println(t);
         
-   
+    	//using setter injection
+    	Tyre t1 =  (Tyre) context.getBean("sample1");
+    	System.out.println(t1);
+    	
+    	//using constructor injection
+    	Tyre t2 =  (Tyre) context.getBean("sample2");
+    	System.out.println(t2);
+       
        
         
     }
