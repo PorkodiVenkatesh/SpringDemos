@@ -5,6 +5,7 @@ import java.util.Scanner;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
 
@@ -35,7 +36,7 @@ public class App
 //	   	obj.drive();
     	
     	
-    	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
+//    	ApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
     	
 //    	Vehicle obj  = (Vehicle) context.getBean("porkodi");
 //    	obj.drive();
@@ -43,15 +44,28 @@ public class App
 //    	Tyre t = new Tyre("Ceat");
 //    	System.out.println(t);
         
-    	//using setter injection
-    	Tyre t1 =  (Tyre) context.getBean("sample1");
-    	System.out.println(t1);
+//    	//using setter injection
+//    	Tyre t1 =  (Tyre) context.getBean("sample1");
+//    	System.out.println(t1);
+//    	
+//    	//using constructor injection
+//    	Tyre t2 =  (Tyre) context.getBean("sample2");
+//    	System.out.println(t2);
+       
+    	ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
     	
-    	//using constructor injection
-    	Tyre t2 =  (Tyre) context.getBean("sample2");
-    	System.out.println(t2);
+//    	Vehicle obj  = (Vehicle) context.getBean("bikeBean");
+//   	   obj.drive();
+    	
+//    	Vehicle obj  = (Vehicle) context.getBean(Bike.class);
+//    	obj.drive();
+    	
+//    	Tyre t = context.getBean(Tyre.class);
+//    	System.out.println(t);
        
-       
+    	
+    	Vehicle obj = (Vehicle) context.getBean(Car.class);
+    	obj.drive();
         
     }
 }
