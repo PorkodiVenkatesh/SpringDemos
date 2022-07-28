@@ -2,5 +2,13 @@
 <beans xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans">
        
-       <bean id = "vehicle"  class = "com.revature.SpringFrameWorkDemo.Car"></bean>
+       <!-- <bean id = "porkodi"  class = "com.revature.SpringFrameWorkDemo.Car"></bean> --> 
+       
+       <bean id = "sample1" class = "com.revature.SpringFrameWorkDemo.Tyre">
+         <property name="brand"  value= "MRF"></property>
+       </bean>
+       
+       <bean id = "sample2"  class = "com.revature.SpringFrameWorkDemo.Tyre">
+         <constructor-arg  value = "Ceat"></constructor-arg>
+       </bean>
 </beans>
